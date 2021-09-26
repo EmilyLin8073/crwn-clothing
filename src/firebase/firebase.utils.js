@@ -46,6 +46,7 @@ export const addCollectionAndDocuments = async (
   const collectionRef = firestore.collection(collectionKey);
 
   const batch = firestore.batch();
+
   objectsToAdd.forEach((obj) => {
     const newDocRef = collectionRef.doc();
     batch.set(newDocRef, obj);
@@ -57,6 +58,9 @@ export const addCollectionAndDocuments = async (
 export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map((doc) => {
     const { title, items } = doc.data();
+
+    console.log("title", title);
+    console.log("items", items);
 
     return {
       routeName: encodeURI(title.toLowerCase()),
