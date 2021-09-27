@@ -28,8 +28,6 @@ class ShopPage extends React.Component {
 
     collectionRef.get().then((snapshot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-
-      console.log("collection map", collectionsMap);
       updateCollections(collectionsMap);
       this.setState({ loading: false });
     });
@@ -37,7 +35,7 @@ class ShopPage extends React.Component {
 
   render() {
     const { match } = this.props;
-    const { loading } = this.state.loading;
+    const { loading } = this.state;
     return (
       <div className="shop-page">
         <Route
