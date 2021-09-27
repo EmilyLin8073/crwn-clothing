@@ -59,9 +59,6 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map((doc) => {
     const { title, items } = doc.data();
 
-    console.log("title", title);
-    console.log("items", items);
-
     return {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
