@@ -23,8 +23,7 @@ class ShopPage extends React.Component {
   }
 
   render() {
-    const { match, isFetchingCollections, selectIsCollectionsLoaded } =
-      this.props;
+    const { match, isFetchingCollections, isCollectionsLoaded } = this.props;
 
     return (
       <div className="shop-page">
@@ -33,7 +32,7 @@ class ShopPage extends React.Component {
           path={`${match.path}`}
           render={(props) => (
             <CollectionsOverviewWithSpinner
-              isLoading={!isFetchingCollections}
+              isLoading={isFetchingCollections}
               {...props}
             />
           )}
@@ -42,7 +41,7 @@ class ShopPage extends React.Component {
           path={`${match.path}/:collectionId`}
           render={(props) => (
             <CollectionPageWithSpinner
-              isLoading={!selectIsCollectionsLoaded}
+              isLoading={!isCollectionsLoaded}
               {...props}
             />
           )}
